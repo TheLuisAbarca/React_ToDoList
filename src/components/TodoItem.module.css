@@ -1,7 +1,7 @@
 .item {
   font-size: 1.2rem;
   list-style-type: none;
-  padding: 17px 0px;
+  padding: 17px 0;
   border-bottom: 1px solid #eaeaea;
 }
 
@@ -23,7 +23,7 @@
 }
 
 .textInput {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #dfdfdf;
-  }
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #dfdfdf;
+}
