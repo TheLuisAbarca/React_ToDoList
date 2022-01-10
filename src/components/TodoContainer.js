@@ -7,25 +7,16 @@ import "../App.css";
 
 class TodoContainer extends React.Component {
   state = {
-    todos: [
-      {
-        id: uuidv4(),
-        title: "Setup development environment",
-        completed: true
-      },
-      {
-        id: uuidv4(),
-        title: "Develop website and add content",
-        completed: false
-      },
-      {
-        id: uuidv4(),
-        title: "Deploy to live server",
-        completed: false
-      }
-    ]
-   };
-   handleChange = (id) => {
+    todos: [],
+  };
+
+  componentDidMount() {
+    fetch("https://jsonplaceholder.typicode.com/todos?_limit=10")
+      .then(response => response.json())
+      .then(data => this.setState({ todos: data }));
+  }
+
+  handleChange = (id) => {
     /*console.log("clicked", id);*/
     this.setState(prevState => {
       return {
