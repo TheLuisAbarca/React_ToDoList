@@ -23,7 +23,7 @@ const TodoItem = (props) => {
         if (event.key === "Enter") {
             setState({ editing: false })
         }
-      }
+    }
 
     let viewMode = {}
     let editMode = {}
