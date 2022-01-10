@@ -19,6 +19,12 @@ const TodoItem = (props) => {
         });
     }
 
+    const handleUpdatedDone = event => {
+        if (event.key === "Enter") {
+            setState({ editing: false })
+        }
+      }
+
     let viewMode = {}
     let editMode = {}
 
@@ -52,6 +58,7 @@ const TodoItem = (props) => {
               onChange={e => {
                 props.setUpdate(e.target.value, id)
               }}
+              onKeyDown={handleUpdatedDone}
             />
         </li>
     );
