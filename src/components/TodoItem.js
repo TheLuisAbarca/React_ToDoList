@@ -1,8 +1,14 @@
 import React from 'react';
 import styles from './TodoItem.module.css';
 
+/* eslint-disable */
 const TodoItem = (props) => {
   const [state, setState] = React.useState({ editing: false });
+  const {
+    handleChangeProps,
+    deleteTodoProps,
+    setUpdate,
+    todo } = props;
 
   const completedStyle = {
     fontStyle: 'italic',
@@ -10,8 +16,6 @@ const TodoItem = (props) => {
     opacity: 0.4,
     textDecoration: 'line-through',
   };
-
-  const { completed, id, title } = props.todo;
 
   const handleEditing = () => {
     setState({
@@ -40,28 +44,29 @@ const TodoItem = (props) => {
         <input
           type="checkbox"
           className={styles.checkbox}
-          checked={completed}
-          onChange={() => props.handleChangeProps(id)}
+          checked={todo.completed}
+          onChange={() => handleChangeProps(todo.id)}
         />
-        <button onClick={() => props.deleteTodoProps(id)}>
+        <button type="submit" onClick={() => deleteTodoProps(todo.id)}>
           Delete
         </button>
-        <span style={completed ? completedStyle : null}>
-          {title}
+        <span style={todo.completed ? completedStyle : null}>
+          {todo.title}
         </span>
       </div>
       <input
         type="text"
         style={editMode}
         className={styles.textInput}
-        value={title}
+        value={todo.title}
         onChange={(e) => {
-          props.setUpdate(e.target.value, id);
+          setUpdate(e.target.value, todo.id);
         }}
         onKeyDown={handleUpdatedDone}
       />
     </li>
   );
 };
+/* eslint-enable */
 
 export default TodoItem;

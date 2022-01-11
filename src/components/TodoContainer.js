@@ -6,6 +6,7 @@ import InputTodo from './InputTodo';
 import '../App.css';
 
 class TodoContainer extends React.Component {
+  // eslint-disable-next-line react/state-in-constructor
   state = {
     todos: [
       {
@@ -37,8 +38,9 @@ class TodoContainer extends React.Component {
   }
 
   componentDidUpdate(prevProps, prevState) {
-    if (prevState.todos !== this.state.todos) {
-      const temp = JSON.stringify(this.state.todos);
+    const { todos } = this.state;
+    if (prevState.todos !== todos) {
+      const temp = JSON.stringify(todos);
       localStorage.setItem('todos', temp);
     }
   }
@@ -59,9 +61,10 @@ class TodoContainer extends React.Component {
   };
 
   delTodo = (id) => {
+    const { todos } = this.state;
     this.setState({
       todos: [
-        ...this.state.todos.filter((todo) => todo.id !== id),
+        ...todos.filter((todo) => todo.id !== id),
       ],
     });
   };
@@ -72,15 +75,18 @@ class TodoContainer extends React.Component {
       title,
       completed: false,
     };
+    const { todos } = this.state;
     this.setState({
-      todos: [...this.state.todos, newTodo],
+      todos: [...todos, newTodo],
     });
   };
 
   setUpdate = (updatedTitle, id) => {
+    const { todos } = this.state;
     this.setState({
-      todos: this.state.todos.map((todo) => {
+      todos: todos.map((todo) => {
         if (todo.id === id) {
+          // eslint-disable-next-line no-param-reassign
           todo.title = updatedTitle;
         }
         return todo;
@@ -89,13 +95,14 @@ class TodoContainer extends React.Component {
   }
 
   render() {
+    const { todos } = this.state;
     return (
       <div className="container">
         <div className="inner">
           <Header />
           <InputTodo addTodoProps={this.addTodoItem} />
           <TodoList
-            todos={this.state.todos}
+            todos={todos}
             handleChangeProps={this.handleChange}
             deleteTodoProps={this.delTodo}
             setUpdate={this.setUpdate}

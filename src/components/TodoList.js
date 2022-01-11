@@ -1,6 +1,6 @@
 import React from 'react';
 import TodoItem from './TodoItem';
-
+/* eslint-disable */
 const TodoList = (props) => (
   <ul>
     {props.todos.map((todo) => (
@@ -14,5 +14,5 @@ const TodoList = (props) => (
     ))}
   </ul>
 );
-
+/* eslint-enable */
 export default TodoList;
