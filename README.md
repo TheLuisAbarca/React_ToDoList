@@ -2,6 +2,9 @@
 
 > "To-do list" is a tool that helps to organize your day.
 
+| Desktop version | Mobile version|
+|-----------------|---------------|
+| ![Desktop_image](./readme_imgs/desktop_ver.png) | ![Mobile_Image](./readme_imgs/mobile_ver.png) | 
 
 "To-do list" is a tool that helps to organize your day. It simply lists the things that you need to do and allows you to mark them as complete.
 
