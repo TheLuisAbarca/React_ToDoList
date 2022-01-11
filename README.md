@@ -14,9 +14,7 @@
 - React
 - Linters
 
-If you like, you can see a live demo of the site here:
-
-[Live Demo Link](https://theluisabarca.github.io/react_todolist/dist/)
+There is no Live Demo available at this time.
 
 ## Getting Started
 
